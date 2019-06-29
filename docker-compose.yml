@@ -1,0 +1,15 @@
+version: '3'
+services:
+  cabu:
+    build: .
+    ports:
+      - "3000:3000/tcp"
+    environment:
+      - NODE_ENV=debug
+      - PORT=3000
+    networks:
+      - cabu
+
+networks:
+  cabu:
+    driver: bridge
