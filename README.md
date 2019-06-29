@@ -2,6 +2,8 @@
 
 Probamos Logger y Docker
 
-### Autor
+### Autor:
 
-Cabu Vallejos
+- `Cabu Vallejos`
+
+### Licencia MIT: [Licencia](https://github.com/cabupy/log-prueba/blob/master/LICENSE)
