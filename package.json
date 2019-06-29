@@ -8,6 +8,11 @@
   },
   "author": "Cabu Vallejos",
   "license": "MIT",
+  "homepage": "https://github.com/cabupy/log-prueba#readme",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/cabupy/log-pruab.git"
+  },
   "dependencies": {
     "bole": "^3.0.2",
     "chalk": "^2.4.2",
