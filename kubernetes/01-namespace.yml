@@ -1,0 +1,6 @@
+# Para crear un namespace con el nombre testing 
+# y separar dentro del cluster los objetos
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: testing

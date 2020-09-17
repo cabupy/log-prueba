@@ -54,9 +54,10 @@ const logHandler = (req, res, next) => {
 }
 
 function middleware (tokens, req, res) {
+  //console.log(tokens)
   const id = req.id
   const { method, url, status } = tokens
-  const message = `${method(req, res)} ${url(req, res)} ${status(req, res)} - ${tokens['response-time'](req, res)} ms`
+  const message = `IP: ${req.header('x-forwarded-for') || req.connection.remoteAddress} Method: ${method(req, res)} URL: ${url(req, res)} Status: ${status(req, res)} - ${tokens['response-time'](req, res)} ms`
   log.info({ id, message })
   return null
 }

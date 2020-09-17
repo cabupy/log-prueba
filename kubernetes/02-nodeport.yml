@@ -1,0 +1,13 @@
+# creamos un servicio para exponer un puerto a traves de la ip del cluster/nodo
+apiVersion: v1 
+kind: Service
+metadata:
+  name: nodejs
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30000
+  selector:
+    role: nodejs

@@ -1,0 +1,29 @@
+# Para levantar replicas de pods con el contenedor nodejs
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nodejs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: nodejs
+    spec:
+      containers:
+        - name: nodejs
+          image: cabupy/nodejs-starter:1.1
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: PG_HOST
+            value: postgres
+          - name: PG_PORT
+            value: "5432"
+          - name: PG_DB
+            value: postgres
+          - name: PG_USER
+            value: postgres
+          - name: PG_PASS
+            value: postgres
+          ports:
+            - containerPort: 3000 

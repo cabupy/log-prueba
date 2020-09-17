@@ -4,20 +4,24 @@
   "description": "Pruebas de Logger y Docker",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Cabu Vallejos",
   "license": "MIT",
   "homepage": "https://github.com/cabupy/log-prueba#readme",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/cabupy/log-pruab.git"
+    "type": "git",
+    "url": "https://github.com/cabupy/log-pruab.git"
   },
   "dependencies": {
     "bole": "^3.0.2",
     "chalk": "^2.4.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
+    "pg": "^7.11.0",
     "stream-file-archive": "^1.1.4",
     "through2": "^3.0.1",
     "uuid": "^3.3.2"

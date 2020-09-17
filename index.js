@@ -1,6 +1,7 @@
 const express = require('express')
 const { getLogger, logHandler } = require('./utils/logger')
 const { terminate } = require('./utils/terminate')
+const db = require('./db')
 
 const app = express()
 
@@ -16,6 +17,29 @@ app.use(logHandler)
 
 app.get('/', (req, res, next) => {
   res.send(`Hola que tal`)
+})
+
+app.get('/json', (req, res, next) => {
+  res.status(200).json({
+    success: true,
+    message: `Hola como estas`
+  })
+})
+
+app.get('/db', async (req, res, next ) => {
+  try {
+    const resultado = await db.query(`SELECT current_timestamp AS hoy;`)
+    return res.status(200).json({
+      success: true,
+      message: `Resultado: ${resultado[0].hoy}`
+    })
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: `Internal Server Error. Mensaje: ${error.message}`
+    })
+  }
+  
 })
 
 app.listen(port, () => {

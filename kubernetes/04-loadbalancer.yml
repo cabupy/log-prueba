@@ -1,0 +1,27 @@
+# levantamos un loadbalancer para apuntar al cluster k8s
+# previamente hay que generar el certificado ssl
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-lb
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    #service.beta.kubernetes.io/do-loadbalancer-tls-passthrough: "true"
+    service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
+    #service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "d29e0826-a5f1-4782-a55f-21d774e39277"
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 3000
+  selector:
+    role: nodejs
