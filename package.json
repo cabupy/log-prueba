@@ -19,7 +19,7 @@
     "bole": "^3.0.2",
     "chalk": "^2.4.2",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "morgan": "^1.9.1",
     "pg": "^7.11.0",
     "stream-file-archive": "^1.1.4",
